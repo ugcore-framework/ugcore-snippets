@@ -1,0 +1,22 @@
+{
+  "name": "ugcore-snippets",
+  "displayName": "UgCore Snippets",
+  "description": "UgCore Snippets for Visual Studio Code",
+  "publisher": "UgCore",
+  "icon": "images/icon.png",
+  "version": "3.6.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "language",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}

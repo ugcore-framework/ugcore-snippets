@@ -1,0 +1,225 @@
+{
+    //-------------------\\
+    // Main Core Snippet \\
+    //-------------------\\
+    "(CLIENT/SERVER) - Get Core Object": {
+        "prefix": ["GC", "GetCore", "OBJ", "OBJECT"],
+        "body": ["local UgCore = exports['ug-core']:GetCore()"],
+        "description": "Get the core object."
+    },
+    
+    //----------------------\\
+    // Client Side Snippets \\
+    //----------------------\\
+    "(CLIENT) - Is Player Loaded": {
+        "prefix": ["IPL", "IsPlayerLoaded", "PlayerLoaded", "PL"],
+        "body": ["UgCore.Functions.IsPlayerLoaded()"],
+        "description": "Get the state if the player has loaded or not."
+    },
+
+    "(CLIENT) - Get Player Data": {
+        "prefix": ["GPD", "PlayerData", "GetPlayerData"],
+        "body": ["local ${1:variable} = UgCore.Functions.GetPlayerData()"],
+        "description": "Get the player data in the client side."
+    },
+    
+    "(CLIENT) - Set Player Data": {
+        "prefix": ["SPD", "SetPlayerData"],
+        "body": ["UgCore.Functions.SetPlayerData(${1:key}, ${2:value})"],
+        "description": "Set a new or replace a data in the player's data."
+    },
+
+    "(CLIENT) - Get Item": {
+        "prefix": ["GI", "GetItem"],
+        "body": ["local ${1:variable} = UgCore.Functions.GetItem('itemName', 1)"],
+        "description": "Search an item in the player inventory."
+    },
+
+    "(CLIENT) - Request Model": {
+        "prefix": ["RM", "RequestModel"],
+        "body": [
+            "UgCore.Functions.RequestModel(${1:model}, function ()",
+            "   -- Function here (executed when finished loading the model)",
+            "end)"
+        ],
+        "description": "Request and load a model. Will execute a function when finished (if there is a function)."
+    },
+    
+    "(CLIENT) - Request Streamed Texture Dictionary": {
+        "prefix": ["RSTD", "RequestStreamedTextureDict"],
+        "body": [
+            "UgCore.Functions.RequestStreamedTextureDict(${1:textureDict}, function ()",
+            "   -- Function here (executed when finished loading the model)",
+            "end)"
+        ],
+        "description": "Request and load a texture dictionary. Will execute a function when finished (if there is a function)."
+    },
+
+    "(CLIENT) - Request Named Ptfx Asset": {
+        "prefix": ["RNPA", "RequestNamedPtfxAsset"],
+        "body": [
+            "UgCore.Functions.RequestNamedPtfxAsset(${1:assetName}, function ()",
+            "   -- Function here (executed when finished loading the model)",
+            "end)"
+        ],
+        "description": "Request and load a ptfx asset. Will execute a function when finished (if there is a function)."
+    },
+
+    "(CLIENT) - Request Anim Set": {
+        "prefix": ["RAS", "RequestAnimSet"],
+        "body": [
+            "UgCore.Functions.RequestAnimSet(${1:animSet}, function ()",
+            "   -- Function here (executed when finished loading the model)",
+            "end)"
+        ],
+        "description": "Request and load an animation section. Will execute a function when finished (if there is a function)."
+    },
+
+    "(CLIENT) - Request Anim Dictionary": {
+        "prefix": ["RAD", "RequestAnimDict"],
+        "body": [
+            "UgCore.Functions.RequestAnimDict(${1:animDict}, function ()",
+            "   -- Function here (executed when finished loading the model)",
+            "end)"
+        ],
+        "description": "Request and load an animation dictionary. Will execute a function when finished (if there is a function)."
+    },
+
+    "(CLIENT) - Request Weapon Asset": {
+        "prefix": ["RWA", "RequestWeaponAsset"],
+        "body": [
+            "UgCore.Functions.RequestWeaponAsset(${1:weaponHash}, function ()",
+            "   -- Function here (executed when finished loading the model)",
+            "end)"
+        ],
+        "description": "Request and load a weapon asset. Will execute a function when finished (if there is a function)."
+    },
+
+    "(CLIENT) - Notify": {
+        "prefix": ["Notify"],
+        "body": ["UgCore.Functions.Notify(${1:title}, ${2:description}, ${3:type}, ${1:timer})"],
+        "description": "Send a notification to the player."
+    },
+
+    "(CLIENT) - Create Progress Bar": {
+        "prefix": ["ProgressBar", "CreateProgressBar"],
+        "body": [
+            "local progressBarSettings = {",
+            "    Movement = {",
+            "        disableMovement = false,",
+            "        disableCarMovement = false,",
+            "        disableMouse = false,",
+            "        disableCombat = true",
+            "    },",
+            "    Animation = {",
+            "        animDict = 'mp_player_inteat@burger',",
+            "        anim = 'mp_player_int_eat_burger',",
+            "        flags = 49",
+            "    },",
+            "    Prop = {",
+            "        model = 'prop_cs_burger_01',",
+            "        bone = 60309,",
+            "        coords = vector3(0.0, 0.0, -0.02),",
+            "        rotation = vector3(30, 0.0, 0.0)",
+            "    }",
+            "}",
+            "",
+            "UgCore.Functions.CreateProgressBar(${1:name}, ${2:label}, ${3:timer}, ${4:useWhileDead}, ${5:canCancel}, progressBarSettings.Movement, progressBarSettings.Animation, progressBarSettings.Prop, { }, function ()",
+            "   -- Function here (executed when the progressbar finished successfully).",
+            "end), function ()",
+            "   -- Function here (executed when the progressbar gets cancelled).",
+            "end)"
+        ],
+        "description": "Creates a new progressbar to the player."
+    },
+
+    "(CLIENT) - Text UI": {
+        "prefix": ["TextUI"],
+        "body": ["UgCore.Functions.TextUI(${1:message})"],
+        "description": "Show a specified message in the HUD."
+    },
+
+    "(CLIENT) - Hide UI": {
+        "prefix": ["HideUI"],
+        "body": ["UgCore.Functions.HideUI()"],
+        "description": "Hides the message in the HUD."
+    },
+
+    "(CLIENT) - Create Vehicle": {
+        "prefix": ["CV", "CreateVehicle"],
+        "body": [
+            "UgCore.Functions.CreateVehicle(${1:model}, ${2:vector3}, ${3:heading}, function (vehicle)",
+            "   -- Function here (executed when the vehicle is created).",
+            "end, ${4:networked})"
+        ],
+        "description": "Creates a new vehicle in the coords desired."
+    },
+
+    "(SERVER) - Get Player Identifier": {
+        "prefix": ["GetIdentifier", "Identifier"],
+        "body": ["local ${1:variable} = UgCore.Functions.GetIdentifier(source)"],
+        "description": "Return the player identifier."
+    },
+
+    "(SERVER) - Get UG Players": {
+        "prefix": ["UGP", "UGPlayers", "GetUgPlayers"],
+        "body": ["local ${1:variable} = UgCore.Functions.GetUGPlayers()"],
+        "description": "Return all players from the server in a GetPlayer() function."
+    },
+
+    "(SERVER) - Get Player": {
+        "prefix": ["GP", "GetPlayer"],
+        "body": ["local ${1:variable} = UgCore.Functions.GetPlayer(source)"],
+        "description": "Return a certain player."
+    },
+
+    "(SERVER) - Send Discord Log": {
+        "prefix": ["SDL", "SendLog", "SendDiscordLog"],
+        "body": ["UgCore.Functions.SendLog(${1:type}, ${2:title}, ${3:message}, ${4:color})"],
+        "description": "Sends a log in the discord (if the webhook is configured in the ug-core)."
+    },
+
+    "(SERVER) - Send Discord Log With Fields": {
+        "prefix": ["SDLF", "SendLogFields", "SendDiscordLogFields"],
+        "body": [
+            "UgCore.Functions.SendLogFields(${1:type}, ${2:title}, ${3:message}, ${4:color}, {",
+            "   { name = ${5:fieldName}, value = ${6:fieldValue}, inline = ${7:fieldInLine} }",
+            "})"
+        ],
+        "description": "Sends a log in the discord with fields (if the webhook is configured in the ug-core)."
+    },
+
+    "(SERVER) - Refresh Jobs": {
+        "prefix": ["RJ", "RefreshJobs"],
+        "body": ["UgCore.Functions.RefreshJobs()"],
+        "description": "Refreshes and adds the jobs that were recently added."
+    },
+
+    "(SERVER) - Refresh Items": {
+        "prefix": ["RI", "RefreshItems"],
+        "body": ["UgCore.Functions.RefreshItems()"],
+        "description": "Refreshes and adds the items that were recently added."
+    },
+
+    "(SERVER) - Create Vehicle": {
+        "prefix": ["CV", "CreateVehicle"],
+        "body": [
+            "UgCore.Functions.CreateVehicle(${1:model}, ${2:vector3}, ${3:heading}, ${4:properties}, function (vehicle)",
+            "   -- Function here (executed when the vehicle is created).",
+            "end, ${5:networked})"
+        ],
+        "description": "Creates a new vehicle in the coords desired."
+    },
+
+    "(SERVER) - Get Item Label": {
+        "prefix": ["GI", "GetItems"],
+        "body": ["local items = UgCore.Functions.GetItems()"],
+        "description": "Get the label of the item desired."
+    },
+
+    "(SERVER) - Get Item Label": {
+        "prefix": ["GIL", "ItemLabel", "GetItemLabel"],
+        "body": ["local itemLabel = UgCore.Functions.GetItemLabel(${1:item})"],
+        "description": "Get the label of the item desired."
+    }
+}
