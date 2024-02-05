@@ -19,6 +19,9 @@ or by searching in the VSCode Marketplace for UgCore Snippets
 
 ## Release Notes
 
+### 3.7.0
+Fixed all the snippets not showing because of a language mistake
+
 ### 3.6.0
 
 Added an icon and added new LINKS to the README
