@@ -1,10 +1,15 @@
 {
   "name": "ugcore-snippets",
+  "publisher": "UgCore",
   "displayName": "UgCore Snippets",
   "description": "UgCore Snippets for Visual Studio Code",
-  "publisher": "UgCore",
+  "version": "3.7.0",
   "icon": "images/icon.png",
-  "version": "3.6.0",
+  "homepage": "https://github.com/ugcore-framework/ugcore-snippets",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ugcore-framework/ugcore-snippets.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -14,7 +19,7 @@
   "contributes": {
     "snippets": [
       {
-        "language": "language",
+        "language": "lua",
         "path": "./snippets/snippets.code-snippets"
       }
     ]
