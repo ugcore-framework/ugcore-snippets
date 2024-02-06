@@ -19,6 +19,9 @@ or by searching in the VSCode Marketplace for UgCore Snippets
 
 ## Release Notes
 
+### 3.8.0
+Added callbacks and added variables to some snippets
+
 ### 3.7.0
 Fixed all the snippets not showing because of a language mistake
 

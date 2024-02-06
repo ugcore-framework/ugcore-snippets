@@ -3,7 +3,7 @@
   "publisher": "UgCore",
   "displayName": "UgCore Snippets",
   "description": "UgCore Snippets for Visual Studio Code",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "icon": "images/icon.png",
   "homepage": "https://github.com/ugcore-framework/ugcore-snippets",
   "repository": {
