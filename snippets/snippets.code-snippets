@@ -112,12 +112,12 @@
             "        disableCombat = true",
             "    },",
             "    Animation = {",
-            "        animDict = 'mp_player_inteat@burger',",
-            "        anim = 'mp_player_int_eat_burger',",
+            "        animDict = 'animDict Here',",
+            "        anim = 'anim Here',",
             "        flags = 49",
             "    },",
             "    Prop = {",
-            "        model = 'prop_cs_burger_01',",
+            "        model = 'propName Here',",
             "        bone = 60309,",
             "        coords = vector3(0.0, 0.0, -0.02),",
             "        rotation = vector3(30, 0.0, 0.0)",
@@ -126,7 +126,7 @@
             "",
             "UgCore.Functions.CreateProgressBar('${1:name}', '${2:label}', ${3:timer}, ${4:useWhileDead}, ${5:canCancel}, progressBarSettings.Movement, progressBarSettings.Animation, progressBarSettings.Prop, { }, function ()",
             "   -- Function here (executed when the progressbar finished successfully).",
-            "end), function ()",
+            "end, function ()",
             "   -- Function here (executed when the progressbar gets cancelled).",
             "end)"
         ],
@@ -221,10 +221,10 @@
         "description": "Creates a new vehicle in the coords desired."
     },
 
-    "(SERVER) - Get Item Label": {
+    "(SERVER) - Get Items": {
         "prefix": ["GI", "GetItems"],
         "body": ["local items = UgCore.Functions.GetItems()"],
-        "description": "Get the label of the item desired."
+        "description": "Get the items from the server."
     },
 
     "(SERVER) - Get Item Label": {
@@ -243,5 +243,25 @@
             "end)"
         ],
         "description": "Creates a callback to be used via the client-side."
+    },
+
+    "(SERVER) - Create Command": {
+        "prefix": ["CMD"],
+        "body": [
+            "-- Creates a command. Also the admin groups can be a string or a table.",
+            "--",
+            "-- More informations here:",
+            "-- https://docs.ugdev.cf/ug-core"
+            "UgCore.Commands.CreateCommand('${1:commandName}', '${2:adminGroups}', function (player, args, showError)",
+            "   -- Function here (when the command is executed).",
+            "end, false, {",
+            "   help = '${3:help}',",
+            "   validate = ${4:validate},",
+            "   arguments = {",
+            "       { name = '${5:argumentName}', help = '${6:argumentHelp}', type = '${7:argumentType}' }",
+            "   }"
+            "})"
+        ],
+        "description": "Creates a command to be used client-side or even server-side."
     }
 }
